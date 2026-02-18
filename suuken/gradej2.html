@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step to Qj2</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          // $...$ も \(...\) も数式として認める設定
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../icon.png">
+    <link rel="apple-touch-icon" href="../icon.png">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <a href="../index.html" class="home-link">🏠 TOP</a>
+        <div class="progress">Q. <span id="q-num">1</span></div>
+    </div>
+    
+    <div class="question-box" id="question-text">
+        読み込み中...
+    </div>
+
+    <div class="options-grid" id="options-area"></div>
+
+    <div class="result-area hidden" id="result-box">
+        <div class="result-title" id="result-title"></div>
+        <div id="content-body" class="content-text"></div>
+    </div>
+
+    <button class="next-btn hidden" id="next-btn" onclick="nextQuestion()">次の問題へ</button>
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

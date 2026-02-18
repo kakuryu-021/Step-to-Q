@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step to Q - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+
+<div class="container dashboard-container">
+
+    
+    <header class="dash-header">
+        <h1>学習レポート</h1>
+    </header>
+
+    <div class="time-stats">
+        <div class="time-box">
+            <span>⏳ 合計学習時間</span>
+            <strong id="total-time">0分0秒</strong>
+            
+        </div>
+        <div class="time-box">
+            <span>⚡ 平均回答時間</span>
+            <strong id="avg-time">0.0秒</strong>
+        </div>
+    </div>
+
+    <div class="stats-grid-detailed">
+        <div class="stat-card">
+            <h3>正答率</h3>
+            <div class="stat-value" id="accuracy-rate">0%</div>
+            <div class="chart-mini-container">
+                <canvas id="accuracyChart"></canvas>
+            </div>
+        </div>
+        <div class="stat-card-text">
+            <div class="row">
+                <span>総回答数</span>
+                <strong id="total-count">0問</strong>
+            </div>
+            <div class="row correct">
+                <span>⭕ 正解数</span>
+                <strong id="correct-count">0回</strong>
+            </div>
+            <div class="row wrong">
+                <span>❌ 誤答数</span>
+                <strong id="incorrect-count">0回</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h3>📊 分野別 正答率</h3>
+        <div class="chart-bar-container">
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+
+    <div class="user-profile-section">
+        <div class="title-icon-box" id="user-title-icon">🥚</div>
+        <div class="title-info">
+            <h3>現在の称号</h3>
+            <div class="title-text" id="user-title-text">数学の卵</div>
+            <div class="next-title" id="next-title-info">次のランクまであと5問</div>
+        </div>
+    </div>
+
+    <div class="heatmap-section">
+        <h3>📅 学習の記録 (直近30日)</h3>
+        <div class="heatmap-grid" id="heatmap-grid">
+            </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="terms.html" class="terms-link-btn">📜 利用規約を確認する</a>
+    </div>
+
+    <div class="course-section" id="course-section-container">
+        <h2>📚 コースを選択</h2>
+
+        <div id="course-lock-overlay" class="lock-overlay">
+            <div class="lock-message">
+                <span style="font-size:3rem;">🔒</span><br>
+                利用規約に同意すると<br>コースが解放されます
+            </div>
+        </div>
+        
+        <a href="suuken/grade2.html" class="course-card">
+            <div class="course-icon-box" style="background: linear-gradient(135deg, #e67e22 0%, #f1c40f 100%);">2級</div>
+            <div class="course-info">
+                <h3>2級 (数II・B)</h3>
+                <p>微分・積分 / ベクトル / 数列</p>
+            </div>
+            <div class="course-arrow">➜</div>
+        </a>
+
+        <a href="suuken/gradej2.html" class="course-card">
+            <div class="course-icon-box">J2</div>
+            <div class="course-info">
+                <h3>準2級 (数I・A)</h3>
+                <p>2次関数 / 三角比 / 確率</p>
+            </div>
+            <div class="course-arrow">➜</div>
+        </a>
+
+        <a href="suuken/grade3.html" class="course-card">
+            <div class="course-icon-box" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">3級</div>
+            <div class="course-info">
+                <h3>3級 (中学3年)</h3>
+                <p>展開・因数分解 / 平方根 / 三平方の定理</p>
+            </div>
+            <div class="course-arrow">➜</div>
+        </a>
+
+        <a href="suuken/gradej1.html" class="course-card">
+            <div class="course-icon-box" style="background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);">準1</div>
+            <div class="course-info">
+                <h3>準1級 (数III・C)</h3>
+                <p>複素数平面 / 極限 / 微分・積分法</p>
+            </div>
+            <div class="course-arrow">➜</div>
+        </a>
+        <a href="suuken/grade1.html" class="course-card">
+            <div class="course-icon-box" style="background: linear-gradient(135deg, #2c3e50 0%, #000000 100%); border: 1px solid #f1c40f; color: #f1c40f;">1級</div>
+            <div class="course-info">
+                <h3>1級 (大学教養)</h3>
+                <p>線形代数 / 多変数解析 / 微分方程式</p>
+            </div>
+            <div class="course-arrow">➜</div>
+        </a>
+        <div class="course-section">
+            <h2>🚀 その他・特別コース</h2>
+            
+            <a href="other/highschool.html" class="course-card">
+                <div class="course-icon-box" style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: #fff;">高校</div>
+                <div class="course-info">
+                    <h3>高校全範囲 (I~C)</h3>
+                    <p>数I・A・II・B・III・C 総復習</p>
+                </div>
+                <div class="course-arrow">➜</div>
+            </a>
+            <a href="other/juniorhigh.html" class="course-card">
+                <div class="course-icon-box" style="background: linear-gradient(135deg, #85560a 0%, #e67e22 100%); color: #fff;">中学</div>
+                <div class="course-info">
+                    <h3>中学全範囲 (1年~3年)</h3>
+                    <p>正負の数・方程式・図形・関数 総復習</p>
+                </div>
+                <div class="course-arrow">➜</div>
+            </a>
+        </div>
+        <div class="course-section">
+            <h2>🏆 競技数学 (数オリ)</h2>
+            
+            <a href="suuori/jjmo-primary.html" class="course-card">
+                <div class="course-icon-box" style="background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%); color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">J予</div>
+                <div class="course-info">
+                    <h3>JJMO予選 (中学生)</h3>
+                    <p>整数問題 / 幾何 / 組合せ論</p>
+                </div>
+                <div class="course-arrow">➜</div>
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="data-management-section">
+        <h2>⚙️ データ管理システム</h2>
+        
+        <div class="data-tabs">
+            <button onclick="switchTab('transfer')" class="tab-btn active">引継ぎ・バックアップ</button>
+            <button onclick="switchTab('reset')" class="tab-btn">データリセット</button>
+        </div>
+
+        <div id="tab-transfer" class="tab-content active">
+            <p class="tab-desc">学習データを「コード」に変換して、別の端末に移動できます。</p>
+            
+            <div class="transfer-box">
+                <h3>📤 データを書き出す (Export)</h3>
+                <button onclick="exportData()" class="action-btn">引継ぎコードを発行</button>
+                <textarea id="export-area" readonly placeholder="ここにコードが表示されます"></textarea>
+                <button onclick="copyCode()" id="copy-btn" class="sub-btn" style="display:none;">📋 コピーする</button>
+            </div>
+
+            <div class="transfer-box">
+                <h3>📥 データを取り込む (Import)</h3>
+                <p class="warning-text">※今のデータは上書きされます！</p>
+                <textarea id="import-area" placeholder="ここに引継ぎコードを貼り付け"></textarea>
+                <button onclick="importData()" class="action-btn secondary">データを復元する</button>
+            </div>
+        </div>
+
+        <div id="tab-reset" class="tab-content">
+            <p class="tab-desc">特定のデータだけを選んで削除できます。</p>
+            
+            <div class="reset-options">
+                <div class="reset-item">
+                    <span>⏱️ 学習時間のみ</span>
+                    <button onclick="resetTimeOnly()" class="reset-btn warning">リセット</button>
+                </div>
+                <div class="reset-item">
+                    <span>📊 成績データのみ</span>
+                    <button onclick="resetStatsOnly()" class="reset-btn warning">リセット</button>
+                </div>
+                <div class="reset-item danger-border">
+                    <span>💀 全データ完全消去</span>
+                    <button onclick="resetAllData()" class="reset-btn danger">完全削除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

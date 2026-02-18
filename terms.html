@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 - Step to Qj2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+
+<div class="container" style="max-width: 1600px;">
+    <div class="header">
+        <h1>📜 利用規約</h1>
+    </div>
+
+    <div class="terms-content">
+        <h3>第1条（目的）</h3>
+        <p>本規約は、数学学習アプリ「Step to Qj2」（以下「本サービス」といいます）の利用条件を定めるものです。<br>
+            本サービスは、数学的思考力の向上、および数検（実用数学技能検定）合格に向けた研鑽を目的とします。</p>
+        
+        <h3>第2条 (利用の同意)</h3>
+        <ol>
+            <li>ユーザーは、本規約に同意した上で本サービスを利用するものとします。</li>
+            <li>同意チェックボックスにチェックを入れ、理解度クイズを確認した時点で、本規約の全ての条項に同意したものとみなされます。</li>
+        </ol>
+
+        <h3>第3条（禁止事項）</h3>
+        <p>ユーザーは、本サービスの利用にあたり、以下の行為を行ってはなりません。</p>
+        <ol>
+            <li>回答にあたっての不正な計算機(電卓、スマホなど)の利用。</li>
+            <li>本サービスのコンテンツを無断で商用利用する行為。</li>
+            <li>「数学を学んでも意味がない」といった、学習のモチベーションを著しく下げる行為。</li>
+        </ol>
+        <h3>第4条 (知的財産権)</h3>
+        <p>本サービスに掲載されている問題は、学習用に生成されたオリジナル問題、または著作権法で認められた「引用」の範囲内のものです。<br>
+            「実用数学技能検定」「数学検定」「数検」の名称およびロゴの権利は、公益財団法人日本数学検定協会に帰属します。本サイトは個人による非公式の学習支援ツールであり、同協会の公式サービスではないことをここに明記します。<br>
+            本サービスのプログラム、デザイン、および独自に作成されたコンテンツの著作権は管理者に帰属します。</p>
+        <h3>第5条 (免責事項)</h3>
+            <ol>
+                <li>管理者は、本サービスに掲載される情報の正確性について細心の注意を払っていますが、その内容を保証するものではありません。</li>
+                <li>本サービスの利用により生じた損害（計算ミスによる失恋、数学の美しさに没頭しすぎたことによる寝不足などを含むがこれらに限られない）について、管理者は一切の責任を負いません。</li>
+                <li>本サービスは予告なく内容の変更、停止、または廃止することがあります。</li>
+            </ol>
+        <h3>第6条 (データの取り扱い)</h3>
+        <ol>
+            <li>本サービス内の学習記録は、ブラウザのローカルストレージに保存されます。</li>
+            <li>ユーザーは「引継ぎコード」を使用することで、自己責任においてデータの移行を行うことができます。</li>
+        </ol>
+        <h3>第7条（規約の変更）</h3>
+            <p>
+                管理者は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。<br>変更後も本サービスの利用を継続した場合、変更後の規約に同意したものとみなします。
+            </p>
+        <h3>第8条 (プライバシーポリシー)</h3>
+        <ol>
+            <li>本サービスは、ユーザーの氏名・住所・電話番号などの個人情報をサーバーに送信・収集することはありません。</li>
+            <li>学習データはユーザーのブラウザ内（LocalStorage）にのみ保存され、管理者がその内容を閲覧することは技術的に不可能です。</li>
+            <li>消息を消す際は、ブラウザのキャッシュを削除することで完全にデータを消滅させることができます。</li>
+        </ol>
+        <h3>第9条 (準拠法・裁判管轄)</h3>
+        <p>
+            本規約の解釈にあたっては、日本法を準拠法とします。本サービスに関して紛争が生じた場合には、n次元空間ではなく、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
+        </p>
+    </div>
+
+    <hr>
+
+    <div class="agreement-box">
+        <label class="checkbox-label">
+            <input type="checkbox" id="agree-check" onchange="toggleContent()">
+            <span>上記規約を理解し、数学の研鑽に励むことを誓います。</span>
+        </label>
+        
+        <button id="submit-btn" class="next-btn" disabled onclick="acceptTerms()">
+            同意してダッシュボードへ
+        </button>
+    </div>
+
+    <div id="optional-quiz-section" class="terms-quiz-section hidden">
+        <h3>✅ 【任意】規約理解度チェック</h3>
+        <p>同意ありがとうございます。余裕があれば、理解度を確認してみましょう。</p>
+        
+        <div class="mini-quiz-item">
+            <p>Q1. 計算に行き詰まったとき、電卓を使ってもよい？</p>
+            <label><input type="radio" name="q1" value="yes" onchange="checkQuiz()"> よい</label>
+            <label><input type="radio" name="q1" value="no" onchange="checkQuiz()"> ダメ。己の脳を使う</label>
+        </div>
+
+        <div class="mini-quiz-item">
+            <p>Q2. このサイトの目的は？</p>
+            <label><input type="radio" name="q2" value="world" onchange="checkQuiz()"> 世界征服</label>
+            <label><input type="radio" name="q2" value="math" onchange="checkQuiz()"> 数学的思考力の向上</label>
+        </div>
+
+        <div id="quiz-msg" style="font-weight:bold; margin:10px 0;"></div>
+    </div>
+
+</div>
+
+<script>
+    // チェックボックスの状態が変わったら実行
+    function toggleContent() {
+        const isChecked = document.getElementById('agree-check').checked;
+        const btn = document.getElementById('submit-btn');
+        const quizSection = document.getElementById('optional-quiz-section');
+
+        // ボタンの有効化
+        btn.disabled = !isChecked;
+        btn.style.opacity = isChecked ? "1" : "0.5";
+
+        // クイズエリアの表示/非表示
+        if (isChecked) {
+            quizSection.classList.remove('hidden');
+            quizSection.classList.add('fade-in');
+        } else {
+            quizSection.classList.add('hidden');
+            quizSection.classList.remove('fade-in');
+        }
+    }
+
+    // 同意ボタンクリック時
+    function acceptTerms() {
+        localStorage.setItem('termsAccepted', 'true');
+        alert("規約に同意しました。ロックを解除します。");
+        window.location.href = 'index.html';
+    }
+
+    // クイズの正誤判定（ただの遊び）
+    function checkQuiz() {
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const msg = document.getElementById('quiz-msg');
+
+        if (q1 && q2) {
+            if (q1.value === 'no' && q2.value === 'math') {
+                msg.textContent = "⭕ さすがです！完璧な理解です。";
+                msg.style.color = "var(--correct)";
+            } else {
+                msg.textContent = "❌ おや？もう一度規約を読みましょう（同意は有効です）。";
+                msg.style.color = "var(--wrong)";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
