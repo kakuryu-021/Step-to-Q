@@ -859,3 +859,117 @@ textarea {
     color: var(--text-main);
 }
 .theme-toggle-btn:hover { transform: scale(1.1); }
+
+/* ==========================================
+   🔔 通知ボタン ＆ モーダル
+   ========================================== */
+
+/* テーマボタンの左に配置 */
+.notify-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 85px; /* テーマボタン(右20px + 幅50px + 隙間15px) */
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    color: var(--text-main);
+}
+.notify-toggle-btn:hover { transform: scale(1.1); }
+
+/* 赤い通知バッジ */
+.notify-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--card-bg);
+}
+
+/* 背景を暗くするオーバーレイ */
+.notify-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px); /* すりガラス効果 */
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.notify-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 通知ボックスの中身 */
+.notify-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 450px;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-light);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    color: var(--text-main);
+}
+.notify-overlay.active .notify-content {
+    transform: translateY(0); /* ふんわり下から浮き上がる */
+}
+
+/* ヘッダーと閉じるボタン */
+.notify-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.notify-header h2 { margin: 0; font-size: 1.2rem; }
+.notify-close-btn {
+    background: none; border: none; font-size: 1.2rem;
+    cursor: pointer; color: var(--text-muted); transition: color 0.2s;
+}
+.notify-close-btn:hover { color: var(--wrong); }
+
+/* お知らせリスト */
+.notify-list { list-style: none; padding: 0; margin: 0; max-height: 500px; overflow-y: auto; }
+.notify-list li {
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--border-light);
+}
+.notify-list li:last-child { border-bottom: none; }
+.notify-date {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--hover-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.notify-list p { margin: 0; font-size: 0.95rem; line-height: 1.5; }

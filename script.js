@@ -382,8 +382,38 @@ function isDark() {
 }
 
 
+// ==========================================
+//  🔔 通知ボックス機能
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    const notifyBtn = document.getElementById("notify-btn");
+    const notifyModal = document.getElementById("notify-modal");
+    const notifyClose = document.getElementById("notify-close");
+
+    // ボタンとモーダルが存在するページでのみ実行
+    if (notifyBtn && notifyModal && notifyClose) {
+        
+        // ベルボタンを押した時（開く）
+        notifyBtn.addEventListener("click", () => {
+            notifyModal.classList.add("active");
+            // ついでにバッジ(赤い丸)を消す演出を入れるならここ
+            const badge = notifyBtn.querySelector('.notify-badge');
+            if(badge) badge.style.display = 'none';
+        });
+
+        // ✖ボタンを押した時（閉じる）
+        notifyClose.addEventListener("click", () => {
+            notifyModal.classList.remove("active");
+        });
+
+        // モーダルの外側(黒い背景)をクリックした時（閉じる）
+        notifyModal.addEventListener("click", (e) => {
+            if (e.target === notifyModal) {
+                notifyModal.classList.remove("active");
+            }
+        });
+    }
+});
 
 // ページ読み込み時に実行
 window.addEventListener('DOMContentLoaded', setDynamicFavicon);
-
-
